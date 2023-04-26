@@ -5,6 +5,16 @@
 
 Hello! Welcome to Nix. This is an User Management System. You can add, delete or update users as much as you like.
 
+# Preview
+
+### Home Page
+
+![Screenshot](public/img/preview-1.png)
+
+### Tables Page
+
+![Screenshot](public/img/preview-2.png)
+
 
 # Changes from Spring Boot Version
 
@@ -53,12 +63,4 @@ This project was mainly built with:
 
 7. Finally, run "npm start" in your terminal, and you can start working on the project!
 
-# Preview
 
-### Home Page
-
-![Screenshot](public/img/preview-1.png)
-
-### Tables Page
-
-![Screenshot](public/img/preview-2.png)
