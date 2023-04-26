@@ -2,6 +2,8 @@
 
 ### This is a previously made user manager named Nix, but this time, it was remade using NodeJS (JavaScript) instead of Spring Boot (Java).
 
+If you want to see the older version of this project, click on this [link](https://github.com/LucianoFrias/nix-user-manager-node) to check it out.
+
 
 Hello! Welcome to Nix. This is an User Management System. You can add, delete or update users as much as you like.
 
