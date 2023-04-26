@@ -1,0 +1,119 @@
+
+:root
+{
+    --primary-color: #0048ba;
+
+}
+
+
+.luciano-vh75
+{
+    height: 80vh !important;
+}
+
+#usersTable
+{
+    width: 100%;
+    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 50px;
+    padding: 0 15px;
+}
+
+
+.userCard
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.userImage
+{
+    height: auto;
+    width: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.buttons-searchbar
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons
+{
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-container
+{
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px solid var(--primary-color);
+    border-radius: 15px;
+}
+
+#searchbar
+{
+    padding-left: 10px;
+    outline: none;
+    border: none;
+}
+
+#searchbar-logo
+{
+    height: auto;
+    width: 40px;
+}
+
+.add-btn,
+.delete-btn,
+.update-btn
+{
+    margin-right: 15px;
+}
+
+.form-deleteUser,
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-addUser,
+.form-updateUser
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 2fr));
+    gap: 20px;
+    align-items: center;
+
+}
+
+
+.sign-up
+{
+    width: 70%;
+    border: 1px solid var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+
+}
+

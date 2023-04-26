@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/myStyles.css">
+    <title>Nix - Tables</title>
+</head>
+<body>
+
+    <!--- Navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="/img/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top rounded-circle">
+                Nix
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="tables.html">Tables</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navbar -->
+
+    <!-- Tables Header -->
+
+    <header class="tables-header">
+        <div class="p-5 text-center bg-light">
+            <h1 class="mb-3">User Table</h1>
+            <h4 class="mb-3">Add, Delete or Update any User!</h4>
+        </div>
+    </header>
+
+    <!-- End of Tables Header -->
+
+    <hr> </hr>
+
+    <!-- Tables Section -->
+    <div>
+        <div class="buttons-searchbar">
+            <div class="searchbar-container">
+                <img id="searchbar-logo" src="img/search-bar.png" alt="searchbar-logo">
+                <input id="searchbar" onkeyup="searchUser()" type="text"
+                       name="search" placeholder="Search users..">
+            </div>
+
+
+            <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#addModal">Add</button>
+        </div>
+    <div id="usersTable">
+
+
+    </div>
+    </div>
+    <!-- End of Tables Section -->
+
+    <!-- Modals -->
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-addUser" id="form-addUser">
+                        <label for="add-name">Name:</label>
+                        <input id="add-name" type="text" name="name" required>
+                        <label for="add-surname">Surname:</label>
+                        <input id="add-surname" type="text" name="surname" required>
+                        <label for="add-gender">Gender:</label>
+                        <select id="add-gender" name="gender" required form="form-addUser">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="add-password">Password:</label>
+                        <input id="add-password" type="password" name="password" required>
+                        <label for="add-email">Email:</label>
+                        <input id="add-email" type="email" name="email" required>
+                        <label for="add-role">Role:</label>
+                        <select id="add-role" name="role" required form="form-addUser">
+                            <option value="Guest">Guest</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="addUser()" value="add" class="btn btn-primary">Add User</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-deleteUser">
+                        <h4>Do you want to delete this user?</h4>
+                        <label for="userInfoID">ID:</label>
+                        <h5><span id="userInfoID"></span></h5>
+                        <label for="userInfoName">Name: </label>
+                        <h5><span id="userInfoName"></span></h5>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, go back.</button>
+                    <button type="button" onclick="deleteUser()" class="btn btn-primary">Yes, delete this user.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Update User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-updateUser" id="form-updateUser">
+                        <label for="update-id">ID: </label>
+                        <h5 id="update-id"></h5>
+                        <label for="update-name">Name:</label>
+                        <input id="update-name" type="text" name="name" required>
+                        <label for="update-surname">Surname:</label>
+                        <input id="update-surname" type="text" name="surname" required>
+                        <label for="update-gender">Gender:</label>
+                        <select id="update-gender" name="gender" required form="form-updateUser">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="update-email">Email:</label>
+                        <input id="update-email" type="email" name="email" required>
+                        <label for="update-role">Role:</label>
+                        <select id="update-role" name="role" required form="form-updateUser">
+                            <option value="Guest">Guest</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="updateUser()" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="js/users.js"></script>
+<script src="js/modals.js"></script>
+<script src="js/searchbar.js"></script>
+
+</html>
