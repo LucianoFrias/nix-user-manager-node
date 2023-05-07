@@ -61,7 +61,7 @@ This project was mainly built with:
 5. After that, save and close the project.
 
 6. Open up a terminal in the root folder and run:
-- npm install 
+   - npm install 
 
 7. Finally, run "npm start" in your terminal, and you can start working on the project!
 
